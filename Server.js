@@ -22,6 +22,10 @@ app.use("/",loginRoute)
 app.use("/",signUpRoute)
 app.use("/",getUserRoute)
 
+app.get("/", async (req, res) => {
+  res.send(`express server is running on ${port}...`);
+});
+
 app.listen(port,host, () => {
   console.log(`My Server is running on port ${port}`)
 })
