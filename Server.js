@@ -13,12 +13,15 @@ app.use(express.urlencoded({
 app.use(cors())
 
 
+const host=process.env.HTTP_HOST || 'localhost';
+
+
 
 dbConnect();
 app.use("/",loginRoute)
 app.use("/",signUpRoute)
 app.use("/",getUserRoute)
 
-app.listen(port, () => {
+app.listen(port,host, () => {
   console.log(`My Server is running on port ${port}`)
 })
